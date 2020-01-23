@@ -1,0 +1,27 @@
+<div class="row mt-2">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item clseffects" *ngFor="let teamName of teamNames" (click)="showTeamDetails(teamName)">
+                {{teamName}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="card"  *ngIf="team">
+           
+            <div class="card-body">
+              <h5 class="card-title">{{team.team}}</h5>
+              <p class="card-text">
+                <span class='cl'>Label</span>:&nbsp; {{team.label}}<br>
+                <span class='cl'>Home Ground</span>:&nbsp; {{team.home}}<br>
+                <span class='cl'>Coach</span>:&nbsp; {{team.coach}}<br>
+                <span class='cl'>City</span>:&nbsp; {{team.city}}<br>
+              </p>
+              <a href="#" class="btn btn-primary">More Details</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

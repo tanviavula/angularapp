@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2" *ngIf="teamDetails">
+        <table class="table table-sm" *ngIf="teamDetails.length > 0">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Team</th>
+                    <th>City</th>
+                    <th>Home</th>
+                    <th>Coach</th>
+                    <th>More</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let team of teamDetails">
+                    <td>{{team.label}}</td>
+                    <td>{{team.team}}</td>
+                    <td>{{team.city}}</td>
+                    <td>{{team.home}}</td>
+                    <td>{{team.coach}}</td>
+                    <td><a [routerLink]="['players',team.label]">More...</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
