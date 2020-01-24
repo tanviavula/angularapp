@@ -7,13 +7,15 @@ import { FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
-  ],
+    HeaderComponent,
+    NotfoundComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

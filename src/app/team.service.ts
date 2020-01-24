@@ -12,4 +12,7 @@ export class TeamService {
   getTeamDetails():Observable<TeamDetails[]>{
     return this.http.get<TeamDetails[]>("./assets/teams.json");
   }
+  getAllPlayers():Observable<PlayerDetails[]>{
+    return this.http.get<PlayerDetails[]>("./assets/all_players.json");
+  }
 }

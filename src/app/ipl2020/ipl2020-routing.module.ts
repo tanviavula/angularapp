@@ -9,7 +9,6 @@ const routes: Routes = [
 
     {
       path:'',
-      component:Ipl2020Component,
       children:[
         {
           path:'',

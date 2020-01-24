@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TeamService } from 'src/app/team.service';
 
 @Component({
   selector: 'app-players',
@@ -10,16 +11,30 @@ export class PlayersComponent implements OnInit {
 
 
   teamName:string;
-  constructor(private route:ActivatedRoute) {
-
-   }
+  teamPlayers:PlayerDetails[]=[];
+  constructor(private route:ActivatedRoute,private teamService:TeamService) {}
 
   ngOnInit() {
-      this.route.paramMap.subscribe(params=>{
-          this.teamName = params.get("teamName")
-      })
-    // this.teamName = this.route.snapshot.paramMap.get("teamName");
-     console.log(this.teamName);
+    this.route.paramMap.subscribe(params=>{
+         this.teamName =  params.get("teamName");
+         this.playerDetails();
+    })
   }
+
+  playerDetails(){
+      this.teamService.getAllPlayers().subscribe(res=>{
+            let players = res;
+            this.teamPlayers = players.filter(p=>{
+              if(p.label == "SRH" && this.teamName=="SH"){
+                  return true;
+              }else{
+                return p.label == this.teamName
+              }
+    
+            });
+        })
+  }
+
+ 
 
 }
